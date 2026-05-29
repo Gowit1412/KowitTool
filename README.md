@@ -5,6 +5,7 @@ Tool bypass install app for phone / tablet education.
 - Bypass installation restrictions on educational tablets and phones.
 - Easy to use with standard developer options.
 - Support for Android OS 10+
+- Fully supports all package formats: APK, APKS, APKM, and XAPK.
 
 ## Prerequisites
 Before using this tool, make sure you have:
@@ -21,7 +22,8 @@ Before using this tool, make sure you have:
 1. Clone this repository or download the latest release.
 2. Connect your device via USB and allow USB Debugging.
 3. Run the setup kowittool.exe.
-4. Follow the on-screen instructions to complete the installation.
+4. Select your application file (supports .apk, .apks, .apkm, .xapk).
+5. Follow the on-screen instructions to complete the installation.
 
 ## Troubleshooting
 - Device not detected: Check your USB cable (must support data transfer) or reinstall Android ADB USB Drivers.
