@@ -57,8 +57,8 @@ Before using this tool, ensure you have:
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/kowit-tool.git
-cd kowit-tool
+git clone https://github.com/Gowit1412/KowitTool.git
+cd kowittool
 ```
 
 ### Install Dependencies
