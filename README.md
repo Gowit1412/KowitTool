@@ -1,14 +1,16 @@
 # KOWIT TOOL
 
-A simple command-line ADB package installer for Android devices.
+A powerful command-line ADB package installer for Android devices.
 
 ![KOWIT TOOL](https://github.com/user-attachments/assets/76ada953-0a96-4b2b-aa50-242a8db86073)
 
 ## Overview
 
-KOWIT TOOL is a lightweight command-line utility that helps install Android application packages through ADB. It supports both single APK files and split-package formats such as XAPK, APKS, APKM, and ZIP archives containing APK files.
+KOWIT TOOL is a lightweight yet powerful command-line utility for installing Android application packages through ADB.
 
-The tool can automatically download and configure Android Platform Tools (ADB) if they are not already installed on your system.
+It supports both standard APK files and split-package formats such as XAPK, APKS, APKM, and ZIP archives containing APK files.
+
+The tool can automatically install required dependencies, download Android Platform Tools (ADB), detect connected devices, and manage package installation with minimal setup.
 
 ---
 
@@ -21,12 +23,29 @@ The tool can automatically download and configure Android Platform Tools (ADB) i
   * APKS
   * APKM
   * ZIP archives containing APK files
+* Install multiple packages in a queue.
+* Automatic dependency installation.
 * Automatic ADB detection.
 * Automatic Android Platform Tools download and setup.
-* Device connection checking.
+* Device connection status checking.
 * ADB reconnect utility.
-* Colored terminal output.
+* File picker for multiple package installation.
+* Temporary file cleanup after installation.
+* Colored terminal interface.
+* Progress bars for downloads and extraction.
 * Windows, Linux, and macOS support.
+
+---
+
+## Supported Formats
+
+| Format                   | Supported |
+| ------------------------ | --------- |
+| APK                      | ✅         |
+| XAPK                     | ✅         |
+| APKS                     | ✅         |
+| APKM                     | ✅         |
+| ZIP (contains APK files) | ✅         |
 
 ---
 
@@ -44,11 +63,12 @@ Before using this tool, ensure you have:
 ## Enable USB Debugging
 
 1. Open **Settings**.
-2. Go to **About Phone** (or About Tablet).
+2. Go to **About Phone** or **About Tablet**.
 3. Tap **Build Number** 7 times.
 4. Open **Developer Options**.
 5. Enable **USB Debugging**.
-6. Connect the device to your computer and allow the debugging authorization prompt.
+6. Connect the device to your computer.
+7. Accept the USB debugging authorization prompt.
 
 ---
 
@@ -58,7 +78,7 @@ Before using this tool, ensure you have:
 
 ```bash
 git clone https://github.com/Gowit1412/KowitTool.git
-cd kowittool
+cd KowitTool
 ```
 
 ### Install Dependencies
@@ -67,7 +87,7 @@ cd kowittool
 pip install colorama
 ```
 
-### Run
+### Run From Source
 
 ```bash
 python kowit_tool.py
@@ -75,21 +95,36 @@ python kowit_tool.py
 
 ---
 
+## First Launch
+
+On the first launch, KOWIT TOOL may automatically:
+
+1. Install required Python dependencies.
+2. Download Android Platform Tools.
+3. Configure ADB.
+4. Start the ADB environment.
+
+No manual ADB installation is required.
+
+---
+
 ## Usage
 
-After launching the program:
+### Install a Single Package
 
 1. Connect your Android device via USB.
-2. Verify that the device appears in the connected device list.
+2. Verify that the device appears as connected.
 3. Select:
 
 ```text
-[1] Install Package
+[1] Install Package (Drag & Drop)
 ```
 
-4. Drag and drop your file into the terminal or paste the full path.
+4. Drag and drop the package file into the terminal or paste the full path.
+5. Press Enter.
+6. Wait for the installation process to finish.
 
-Supported formats:
+Supported file types:
 
 ```text
 .apk
@@ -99,34 +134,56 @@ Supported formats:
 .zip
 ```
 
-5. Wait for the installation process to complete.
+---
+
+### Install Multiple Packages
+
+1. Select:
+
+```text
+[2] Install Multiple APK
+```
+
+2. A file selection window will open.
+3. Select one or more package files.
+4. Click Open.
+5. The packages will be installed sequentially.
 
 ---
 
 ## Menu Options
 
 ```text
-[1] Install Package
-[2] Reconnect Device
-[3] Check Device
-[4] Exit
+[1] Install Package (Drag & Drop)
+[2] Install Multiple APK (Select Files)
+[3] Reconnect Device
+[4] Check Device Connection
+[5] Exit
 ```
 
 ### Install Package
 
 Install APK, XAPK, APKS, APKM, or ZIP packages.
 
+### Install Multiple APK
+
+Select and install multiple packages through a graphical file picker.
+
 ### Reconnect Device
 
-Restart the ADB server and reconnect devices.
+Restart the ADB server and reconnect Android devices.
 
-### Check Device
+### Check Device Connection
 
 Display the output of:
 
 ```bash
 adb devices
 ```
+
+### Exit
+
+Close the application.
 
 ---
 
@@ -138,6 +195,9 @@ adb devices
 * Use a USB port that supports data transfer.
 * Reconnect the device.
 * Enable USB Debugging.
+* Try the Reconnect Device option.
+
+---
 
 ### Unauthorized Device
 
@@ -149,11 +209,33 @@ unauthorized
 
 Disconnect and reconnect the device, then accept the USB debugging prompt on the Android device.
 
+You may also try:
+
+```bash
+adb kill-server
+adb start-server
+```
+
+---
+
 ### ADB Not Found
 
 No action is required.
 
-KOWIT TOOL will automatically download Android Platform Tools and configure ADB for you.
+KOWIT TOOL will automatically download Android Platform Tools and configure ADB.
+
+---
+
+### Installation Failed
+
+Possible causes:
+
+* Corrupted APK package.
+* Incompatible Android version.
+* Insufficient device storage.
+* Package signature mismatch.
+
+Try uninstalling the existing application before reinstalling.
 
 ---
 
@@ -161,4 +243,12 @@ KOWIT TOOL will automatically download Android Platform Tools and configure ADB 
 
 This software is intended for educational, development, testing, and device management purposes.
 
-The developer is not responsible for any damage, data loss, device malfunction, or misuse resulting from the use of this software. Use at your own risk.
+The developer is not responsible for any damage, data loss, device malfunction, account issues, or misuse resulting from the use of this software.
+
+Use at your own risk.
+
+---
+
+## License
+
+This project is provided as-is without warranty of any kind.
