@@ -157,16 +157,6 @@ KOWIT TOOL will automatically download Android Platform Tools and configure ADB 
 
 ---
 
-## Build Executable
-
-Create a standalone executable using PyInstaller:
-
-```bash
-pyinstaller --onefile --name "KOWIT_TOOL" kowit_tool.py
-```
-
----
-
 ## Disclaimer
 
 This software is intended for educational, development, testing, and device management purposes.
