@@ -1,37 +1,174 @@
-# KowitTool
+# KOWIT TOOL
 
-<img width="796" height="413" alt="image" src="https://github.com/user-attachments/assets/76ada953-0a96-4b2b-aa50-242a8db86073" />
+A simple command-line ADB package installer for Android devices.
 
+![KOWIT TOOL](https://github.com/user-attachments/assets/76ada953-0a96-4b2b-aa50-242a8db86073)
 
-Tool bypass install app for phone / tablet education.
+## Overview
+
+KOWIT TOOL is a lightweight command-line utility that helps install Android application packages through ADB. It supports both single APK files and split-package formats such as XAPK, APKS, APKM, and ZIP archives containing APK files.
+
+The tool can automatically download and configure Android Platform Tools (ADB) if they are not already installed on your system.
+
+---
 
 ## Features
-- Bypass installation restrictions on educational tablets and phones.
-- Easy to use with standard developer options.
-- Support for Android OS 10+
-- Fully supports all package formats: APK, APKS, APKM, and XAPK.
 
-## Prerequisites
-Before using this tool, make sure you have:
-- A USB cable to connect your device to a PC.
-- USB Debugging enabled on your phone/tablet.
+* Install standard APK files directly.
+* Install split packages:
 
-### How to enable USB Debugging:
-1. Go to Settings > About Phone.
-2. Tap "Build Number" 7 times until Developer Options is unlocked.
-3. Go back to Settings > Developer Options.
-4. Turn on "USB Debugging".
+  * XAPK
+  * APKS
+  * APKM
+  * ZIP archives containing APK files
+* Automatic ADB detection.
+* Automatic Android Platform Tools download and setup.
+* Device connection checking.
+* ADB reconnect utility.
+* Colored terminal output.
+* Windows, Linux, and macOS support.
 
-## How to Use
-1. Clone this repository or download the latest release.
-2. Connect your device via USB and allow USB Debugging.
-3. Run the setup kowittool.exe.
-4. Select your application file (supports .apk, .apks, .apkm, .xapk).
-5. Follow the on-screen instructions to complete the installation.
+---
+
+## Requirements
+
+Before using this tool, ensure you have:
+
+* A USB cable that supports data transfer.
+* An Android phone or tablet.
+* USB Debugging enabled on the device.
+* Python 3.8+ (when running from source).
+
+---
+
+## Enable USB Debugging
+
+1. Open **Settings**.
+2. Go to **About Phone** (or About Tablet).
+3. Tap **Build Number** 7 times.
+4. Open **Developer Options**.
+5. Enable **USB Debugging**.
+6. Connect the device to your computer and allow the debugging authorization prompt.
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/kowit-tool.git
+cd kowit-tool
+```
+
+### Install Dependencies
+
+```bash
+pip install colorama
+```
+
+### Run
+
+```bash
+python kowit_tool.py
+```
+
+---
+
+## Usage
+
+After launching the program:
+
+1. Connect your Android device via USB.
+2. Verify that the device appears in the connected device list.
+3. Select:
+
+```text
+[1] Install Package
+```
+
+4. Drag and drop your file into the terminal or paste the full path.
+
+Supported formats:
+
+```text
+.apk
+.xapk
+.apks
+.apkm
+.zip
+```
+
+5. Wait for the installation process to complete.
+
+---
+
+## Menu Options
+
+```text
+[1] Install Package
+[2] Reconnect Device
+[3] Check Device
+[4] Exit
+```
+
+### Install Package
+
+Install APK, XAPK, APKS, APKM, or ZIP packages.
+
+### Reconnect Device
+
+Restart the ADB server and reconnect devices.
+
+### Check Device
+
+Display the output of:
+
+```bash
+adb devices
+```
+
+---
 
 ## Troubleshooting
-- Device not detected: Check your USB cable (must support data transfer) or reinstall Android ADB USB Drivers.
-- Device unauthorized: Check your phone/tablet screen and allow the USB debugging prompt.
+
+### Device Not Detected
+
+* Check the USB cable.
+* Use a USB port that supports data transfer.
+* Reconnect the device.
+* Enable USB Debugging.
+
+### Unauthorized Device
+
+If the device shows:
+
+```text
+unauthorized
+```
+
+Disconnect and reconnect the device, then accept the USB debugging prompt on the Android device.
+
+### ADB Not Found
+
+No action is required.
+
+KOWIT TOOL will automatically download Android Platform Tools and configure ADB for you.
+
+---
+
+## Build Executable
+
+Create a standalone executable using PyInstaller:
+
+```bash
+pyinstaller --onefile --name "KOWIT_TOOL" kowit_tool.py
+```
+
+---
 
 ## Disclaimer
-This project is developed strictly for educational and testing purposes only. The developer (Kowit) is not responsible for any misuse, data loss, bricked devices, or violations of terms of service caused by this tool. Use it at your own risk.
+
+This software is intended for educational, development, testing, and device management purposes.
+
+The developer is not responsible for any damage, data loss, device malfunction, or misuse resulting from the use of this software. Use at your own risk.
